@@ -1,7 +1,7 @@
 import streamlit as st
-from frosty import parse_sentence
-import snowpark
-from snowpark.sql import SparkSession
+#from frosty import parse_sentence
+#import snowpark
+#from snowpark.sql import SparkSession
 
 
 st.title("Hello - Please ask question to Snowflake Database")
