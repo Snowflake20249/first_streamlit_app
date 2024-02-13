@@ -1,4 +1,5 @@
 import streamlit as st
+import snowflake.connector
 #from frosty import parse_sentence
 #import snowpark
 #from snowpark.sql import SparkSession
