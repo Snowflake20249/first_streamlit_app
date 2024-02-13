@@ -9,7 +9,7 @@ question = st.text_input("Ask your question")
 
 if st.button("Ask"):
     # Parse user question
-    st.title(question)
+    st.header(question)
     #parsed_query = parse_sentence(question)
     
     # Convert parsed query to Snowpark compatible SQL
