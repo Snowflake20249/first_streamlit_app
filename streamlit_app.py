@@ -1,6 +1,6 @@
 import streamlit as st
 #from frosty import parse_sentence
-import snowpark
+#import snowpark
 from snowpark.sql import SparkSession
 
 
