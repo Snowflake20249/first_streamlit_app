@@ -1,2 +1,5 @@
 snowflake-connector-python
+snowflake-snowpark-python[pandas]==1.7.0
 openai
+
+pytest
