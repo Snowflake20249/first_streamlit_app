@@ -6,6 +6,8 @@ from openai import OpenAI
 
 # Logic to convert Natural Language into SQL
 def func_return_query(vStr):
+    #client = OpenAI(api_key=st.secrets.OPENAI_API_KEY)
+    
     return vStr
 
 st.title("Hello - Please ask question to Snowflake Database")
@@ -16,6 +18,10 @@ question = st.text_input("Ask your question")
 if st.button("Ask"):    
     # API to convert Natural language to SQL
     st.text(question)
+    #st.session_state.messages = [{"role": "system", "content": get_system_prompt()}]
+    st.session_state.messages.append({"role": "user", "content": question})
+
+    
     st.text("Convert to")
     vSQL= func_return_query(question)
     st.text(vSQL)    
