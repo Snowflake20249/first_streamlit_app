@@ -14,7 +14,7 @@ question = st.text_input("Ask your question")
 
 
 if st.button("Ask"):    
-    with st.spinner("Thinking)
+    with st.spinner("Thinking")
     # API to convert Natural language to SQL
     st.text(question)
     st.text("Convert to")
