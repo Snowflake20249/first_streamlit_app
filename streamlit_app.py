@@ -30,8 +30,16 @@ if st.button("Ask"):
     st.session_state.messages = [{"role": "system", "content": "test"}]
     st.session_state.messages.append({"role": "user", "content": question})
 
+   # for message in st.session_state.messages:
+   #     st.text(message)
+
     for message in st.session_state.messages:
-        st.text(message)
+        if message["role"] == "system":
+        continue
+        with st.chat_message(message["role"]):
+            st.write(message["content"])
+            if "results" in message:
+                st.dataframe(message["results"])
     
     
     st.text("Convert to")
