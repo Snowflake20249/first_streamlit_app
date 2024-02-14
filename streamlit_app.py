@@ -2,19 +2,20 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import requests as rq
+import openai as ai
 
+# Logic to convert Natural Language into SQL
 def func_return_query(vStr):
     return vStr
 
 st.title("Hello - Please ask question to Snowflake Database")
 st.text("Sample - select * from snowflake_sample_data.tpch_sf1.lineitem limit 5")
 question = st.text_input("Ask your question")
-st.text(question)
 
 
-if st.button("Ask"):
-    
+if st.button("Ask"):    
     # API to convert Natural language to SQL
+    st.text(question)
     st.text("Convert to")
     vSQL= func_return_query(question)
     st.text(vSQL)    
