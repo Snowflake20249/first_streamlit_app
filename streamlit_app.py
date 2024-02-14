@@ -37,5 +37,6 @@ if st.button("Ask"):
     #result = spark.sql(snowpark_query)
     # Display results
     # st.write(result.toPandas())
+    my_cnx.close()
 
-my_cnx.close()
+
