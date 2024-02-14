@@ -30,7 +30,7 @@ if st.button("Ask"):
     #st.session_state.messages = [{"role": "system", "content": get_system_prompt()}]
     
     st.session_state.messages = [{"role": "system", "content": vcontext}]
-    st.session_state.messages.append({"role": "user", "content": question})
+    st.session_state.messages.append({"role": "user", "content": func_return_query(question)})
     
     for msg in st.session_state.messages:
        st.text(msg)
