@@ -17,7 +17,7 @@ if st.button("Ask"):
     # Parse user question
     st.header(question)
     # API to convert Natural language to SQL
-    SQL= question
+    vSQL= question
 
         
     my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
@@ -29,7 +29,7 @@ if st.button("Ask"):
       #fruit_load_df.rename(columns = {0: 'Fruit Name'},inplace = True)
       #st.header('Fruit Load Contains')
       #st.dataframe(load_df)
-    st.dataframe(load_df)
+        st.dataframe(load_df)
 
 
 
