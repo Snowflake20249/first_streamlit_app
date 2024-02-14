@@ -3,6 +3,7 @@ import snowflake.connector
 import pandas as pd
 import requests as rq
 from openai import OpenAI
+from prompts import get_system_prompt
 
 
 SCHEMA_PATH="snowflake_sample_data.tpch_sf1"
