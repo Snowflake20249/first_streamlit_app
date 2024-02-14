@@ -15,7 +15,7 @@ question = st.text_input("Ask your question")
 
 if st.button("Ask"):
     # Parse user question
-    st.header(question)
+    st.text(question)
     # API to convert Natural language to SQL
     vSQL= question
         
