@@ -11,9 +11,28 @@ import requests as rq
 st.title("Hello - Please ask question to Snowflake Database")
 question = st.text_input("Ask your question")
 
+
+
 if st.button("Ask"):
     # Parse user question
     st.header(question)
+    # API to convert Natural language to SQL
+    SQL= question
+
+        
+    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+    my_cur = my_cnx.cursor()
+    my_cur.execute("SELECT * from PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST")
+    my_data_row = my_cur.fetchall()
+
+    load_df = pd.DataFrame(my_data_row)
+      #fruit_load_df.rename(columns = {0: 'Fruit Name'},inplace = True)
+      #st.header('Fruit Load Contains')
+      #st.dataframe(load_df)
+    st.dataframe(load_df)
+
+
+
     #parsed_query = parse_sentence(question)
     
     # Convert parsed query to Snowpark compatible SQL
@@ -24,3 +43,7 @@ if st.button("Ask"):
     
     # Display results
    # st.write(result.toPandas())
+
+
+
+my_cnx.close()
