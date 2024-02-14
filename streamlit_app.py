@@ -26,9 +26,13 @@ if st.button("Ask"):
     # API to convert Natural language to SQL
     st.text(question)
     #st.session_state.messages = [{"role": "system", "content": get_system_prompt()}]
+    
     st.session_state.messages = [{"role": "system", "content": "test"}]
     st.session_state.messages.append({"role": "user", "content": question})
-   
+
+    for message in st.session_state.messages:
+        st.text(message)
+    
     
     st.text("Convert to")
     vSQL= func_return_query(question)
