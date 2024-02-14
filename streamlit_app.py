@@ -2,7 +2,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import requests as rq
-import openai as ai
+from openai import OpenAI
 
 # Logic to convert Natural Language into SQL
 def func_return_query(vStr):
