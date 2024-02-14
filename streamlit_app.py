@@ -18,7 +18,6 @@ if st.button("Ask"):
     st.header(question)
     # API to convert Natural language to SQL
     vSQL= question
-
         
     my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
     my_cur = my_cnx.cursor()
@@ -26,24 +25,17 @@ if st.button("Ask"):
     my_data_row = my_cur.fetchall()
 
     load_df = pd.DataFrame(my_data_row)
-      #fruit_load_df.rename(columns = {0: 'Fruit Name'},inplace = True)
-      #st.header('Fruit Load Contains')
-      #st.dataframe(load_df)
-        st.dataframe(load_df)
-
-
+    #fruit_load_df.rename(columns = {0: 'Fruit Name'},inplace = True)
+    #st.header('Fruit Load Contains')
+    #st.dataframe(load_df)
+    st.dataframe(load_df)
 
     #parsed_query = parse_sentence(question)
-    
     # Convert parsed query to Snowpark compatible SQL
     #snowpark_query = parsed_query.to_sql()
-    
     # Execute query in Snowflake
     #result = spark.sql(snowpark_query)
-    
     # Display results
-   # st.write(result.toPandas())
-
-
+    # st.write(result.toPandas())
 
 my_cnx.close()
