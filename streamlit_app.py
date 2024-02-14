@@ -7,6 +7,7 @@ from openai import OpenAI
 
 SCHEMA_PATH="snowflake_sample_data.tpch_sf1"
 QUALIFIED_TABLE_NAME = f"{SCHEMA_PATH}.lineitem"
+vcontext= "Act as Data Engineer and convert to sql query"
 
 
 
@@ -27,7 +28,7 @@ if st.button("Ask"):
     st.text(question)
     #st.session_state.messages = [{"role": "system", "content": get_system_prompt()}]
     
-    st.session_state.messages = [{"role": "system", "content": "test"}]
+    st.session_state.messages = [{"role": "system", "content": vcontext}]
     st.session_state.messages.append({"role": "user", "content": question})
 
    for message in st.session_state.messages:
