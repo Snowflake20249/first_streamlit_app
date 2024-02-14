@@ -30,8 +30,8 @@ if st.button("Ask"):
     
     st.session_state.messages = [{"role": "system", "content": vcontext}]
     st.session_state.messages.append({"role": "user", "content": question})
-
-   for msg in st.session_state.messages:
+    
+    for msg in st.session_state.messages:
        st.text(msg)
 
     # for message in st.session_state.messages:
