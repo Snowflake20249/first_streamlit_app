@@ -16,6 +16,15 @@ vcontext= "Act as Data Engineer and convert to sql query"
 def func_return_query(vStr):
     client = OpenAI(api_key="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") # Add API Key
     #client = OpenAI(api_key=st.secrets.OPENAI_API_KEY)
+
+    completion = client.chat.completions.create(
+      model="gpt-3.5-turbo",
+      messages=[
+        {"role": "user", "content": vStr}
+      ]
+    )
+
+    st.write(completion.choices[0].message.content)
     
     return vStr
 
