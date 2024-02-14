@@ -14,7 +14,6 @@ question = st.text_input("Ask your question")
 
 
 if st.button("Ask"):    
-    st.spinner("Thinking")
     # API to convert Natural language to SQL
     st.text(question)
     st.text("Convert to")
@@ -22,13 +21,14 @@ if st.button("Ask"):
     st.text(vSQL)    
     
     # Execute SQL
-    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-    my_cur = my_cnx.cursor()
-    my_cur.execute(vSQL)   # "SELECT * from PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST"
-    my_data_row = my_cur.fetchall()
-
-    load_df = pd.DataFrame(my_data_row)
-    st.dataframe(load_df)
+    st.spinner("Thinking"):
+        my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+        my_cur = my_cnx.cursor()
+        my_cur.execute(vSQL)   # "SELECT * from PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST"
+        my_data_row = my_cur.fetchall()
+    
+        load_df = pd.DataFrame(my_data_row)
+        st.dataframe(load_df)
 
     my_cnx.close()
     
