@@ -4,8 +4,15 @@ import pandas as pd
 import requests as rq
 from openai import OpenAI
 
+
+SCHEMA_PATH="snowflake_sample_data.tpch_sf1"
+QUALIFIED_TABLE_NAME = f"{SCHEMA_PATH}.lineitem"
+
+
+
 # Logic to convert Natural Language into SQL
 def func_return_query(vStr):
+    #client = OpenAI(api_key="") # Add API Key
     #client = OpenAI(api_key=st.secrets.OPENAI_API_KEY)
     
     return vStr
@@ -19,8 +26,8 @@ if st.button("Ask"):
     # API to convert Natural language to SQL
     st.text(question)
     #st.session_state.messages = [{"role": "system", "content": get_system_prompt()}]
-    st.session_state.messages.append({"role": "user", "content": question})
-
+    st.session_state.messages = [{"role": "system", "content": "test"}]
+   
     
     st.text("Convert to")
     vSQL= func_return_query(question)
