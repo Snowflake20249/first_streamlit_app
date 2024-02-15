@@ -24,7 +24,7 @@ def func_return_query(vStr):
     #   ]
     # )
 
-    st.write(completion.choices[0].message.content)
+    #st.write(completion.choices[0].message.content)
     
     return vStr
 
